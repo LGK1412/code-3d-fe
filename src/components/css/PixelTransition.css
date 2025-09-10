@@ -1,0 +1,25 @@
+.pixel-transition {
+    position: relative;
+  }
+  
+  .img-before,
+  .img-after {
+    transition: clip-path 1s ease-in-out, opacity 1s ease-in-out;
+    clip-path: inset(0 0 0 0);
+  }
+  
+  .pixel-transition:hover .img-before {
+    opacity: 0;
+    clip-path: inset(50% 50% 50% 50%);
+    filter: contrast(200%) saturate(0%) brightness(120%);
+  }
+  
+  .pixel-transition:hover .img-after {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  
+  .img-after {
+    opacity: 0;
+  }
+  

@@ -1,5 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Bebas_Neue, Roboto, Alegreya_SC, Inria_Serif } from 'next/font/google'
+import { Toaster } from 'react-hot-toast';
+
+const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400', variable: '--font-bebas' })
+const roboto = Roboto({ subsets: ['latin'], weight: '400', variable: '--font-roboto' })
+const alegreya = Alegreya_SC({ subsets: ['latin'], weight: '400', variable: '--font-alegreya' })
+const inria = Inria_Serif({ subsets: ['latin'], weight: '400', variable: '--font-inria' })
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,10 +25,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${bebas.variable} ${roboto.variable} ${alegreya.variable} ${inria.variable}`}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Toaster position="top-right" />
         {children}
       </body>
     </html>

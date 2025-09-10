@@ -1,26 +1,188 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.blur-text {
+  text-shadow: 0 0 6px rgba(212, 178, 139, 0.6),
+    0 0 10px rgba(212, 178, 139, 0.3);
+}
+
+/* 🔽 THÊM PHẦN NÀY VÀO CUỐI */
+/* App.css hoặc index.css */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  /* nhạt màu */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.glitch {
+  position: relative;
+  color: white;
+  font-weight: bold;
+  font-size: 4rem;
+  letter-spacing: 2px;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: white;
+  background: transparent;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.glitch::before {
+  color: #a97455;
+  z-index: -1;
+  animation: glitchTop 2s infinite steps(2, end);
+}
+
+.glitch::after {
+  color: black;
+  z-index: -1;
+  animation: glitchBottom 2s infinite steps(2, end);
+}
+
+.text-shadow-xl {
+  text-shadow:
+    3px 3px 0 #999,
+    6px 6px 0 #888,
+    9px 9px 0 #777,
+    12px 12px 0 #666;
+}
+
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: translate(0, 0);
+  }
+
+  10% {
+    clip: rect(10px, 9999px, 50px, 0);
+    transform: translate(-3px, -3px);
+  }
+
+  20% {
+    clip: rect(85px, 9999px, 140px, 0);
+    transform: translate(3px, 2px);
+  }
+
+  30% {
+    clip: rect(25px, 9999px, 80px, 0);
+    transform: translate(-5px, 0);
+  }
+
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: translate(0, 0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: translate(0, 0);
+  }
+
+  10% {
+    clip: rect(30px, 9999px, 80px, 0);
+    transform: translate(3px, 2px);
+  }
+
+  20% {
+    clip: rect(65px, 9999px, 120px, 0);
+    transform: translate(-3px, -2px);
+  }
+
+  30% {
+    clip: rect(40px, 9999px, 90px, 0);
+    transform: translate(5px, 1px);
+  }
+
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: translate(0, 0);
+  }
+
+}
+
+:root {
+  /* Gradients */
+  --gradient-macha: linear-gradient(135deg, #a8e6cf, #dcedc1);
+  --gradient-orange-crush: linear-gradient(135deg, #ff9966, #ff5e62);
+  --gradient-lipstick: linear-gradient(135deg, #b92b27, #1565c0);
+  --gradient-purple-haze: linear-gradient(135deg, #8e2de2, #4a00e0);
+  --gradient-skyfall: linear-gradient(135deg, #43cea2, #185a9d);
+  --gradient-emerald-city: linear-gradient(135deg, #348f50, #56b4d3);
+  --gradient-summer-fair: linear-gradient(135deg, #f6d365, #fda085);
+
+  /* Flat colors */
+  --color-shockingly-green: #00ff90;
+  --color-surface-white: #ffffff;
+  --color-pink: #ff69b4;
+  --color-shockingly-pink: #ff00aa;
+  --color-orangey: #ffaa00;
+  --color-lilac: #c8a2c8;
+  --color-lt-green: #a8e6cf;
+  --color-blue: #0077ff;
+
+  /* Sticker background shades */
+  --grey-dark: #333;
+  --light: #fefefe;
+  --green: #4caf50;
+  --green-dark: #2e7d32;
+  --green-light: #81c784;
+  --red: #f44336;
+  --orange: #ff9800;
+  --purple: #9c27b0;
+}
+
+@layer base {
+  html {
+    --font-bebas: 'Bebas Neue', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
+    --font-alegreya: 'Alegreya SC', serif;
+    --font-inria: 'Inria Serif', serif;
+  }
+
+  .font-bebas {
+    font-family: var(--font-bebas);
+  }
+
+  .font-roboto {
+    font-family: var(--font-roboto);
+  }
+
+  .font-alegreya {
+    font-family: var(--font-alegreya);
+  }
+
+  .font-inria {
+    font-family: var(--font-inria);
+  }
 }

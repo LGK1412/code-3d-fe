@@ -1,0 +1,33 @@
+/* Banner.css */
+
+.sale-loop {
+  animation: flicker 2.5s infinite alternate;
+}
+
+.sale-word {
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.15);
+  animation: floatText 3s ease-in-out infinite;
+}
+
+.percent-pop {
+  animation: popZoom 2s ease-in-out infinite;
+}
+
+/* Hiệu ứng nhấp nháy nhẹ */
+@keyframes flicker {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.8; transform: scale(1.02); }
+  100% { opacity: 1; }
+}
+
+/* Hiệu ứng nổi nhẹ lên và xuống */
+@keyframes floatText {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* Hiệu ứng zoom mềm */
+@keyframes popZoom {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.1); }
+}
